@@ -1,0 +1,104 @@
+:root {
+    --primario: #2c3e50;
+    --secundario: #3498db;
+    --fondo: #f4f7f6;
+    --texto: #333333;
+    --borde: #e0e0e0;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--fondo);
+    color: var(--texto);
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: var(--primario);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav h1 {
+    color: white;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.btn {
+    background-color: var(--secundario);
+    color: white;
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+h2 {
+    margin-top: 0;
+    color: var(--primario);
+    border-bottom: 2px solid var(--fondo);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.formulario {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+input[type="date"] {
+    padding: 0.6rem;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    font-family: inherit;
+    outline: none;
+}
+
+input[type="date"]:focus {
+    border-color: var(--secundario);
+}
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--borde);
+}
+
+th {
+    background-color: var(--fondo);
+    color: var(--primario);
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #fcfcfc;
+}
+

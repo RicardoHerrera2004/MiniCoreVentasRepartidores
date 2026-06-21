@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Costos</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body>  
+    <nav>
+        <h1>Sistema MINI CORE </h1>
+        <a href="{% url 'admin:index' %}" class="btn">Administrador</a>
+    </nav>
+    
+    <h2>Filtro de Envios</h2>
+    <form method="get" action="{% url 'reporte_costos' %}" class ="formulario">
+        <label for="fecha_inicio">Fecha de Inicio:</label>
+        <input type="date" id="fecha_inicio" name="fecha_inicio" value="{{ fecha_inicio|default_if_none:'' }}" required>
+
+        <label for="fecha_fin">Fecha de Fin:</label>
+        <input type="date" id="fecha_fin" name="fecha_fin" value="{{ fecha_fin|default_if_none:'' }}" required>
+
+        <button type="submit" class="btn">Filtrar</button>
+    </form>
+
+    <hr>
+
+    {% if error_fecha %}
+        <div class="mensaje-error">
+            <p> {{ error_fecha }}</p>
+        </div>
+
+    {% elif repartidores %}
+        <h2>Reporte de Costos por Repartidor</h2>
+        <table border="1">
+            <tr>
+                <th>Repartidor</th>
+                <th>Envíos</th>
+                <th>Total kg</th>
+                <th>Zonas</th>
+                <th>Tarifas</th>
+                <th>Costo Total</th>
+            </tr>
+            {% for repartidor in repartidores %}
+            <tr>
+                <td>{{ repartidor.nombre_repartidor }}</td>
+                <td>{{ repartidor.total_envios }}</td>
+                <td>{{ repartidor.total_kg|floatformat:2 }}</td>
+                <td>{{ repartidor.zonas }}</td>
+                <td>{{ repartidor.tarifas }}</td>
+                <td> ${{ repartidor.costo_total|floatformat:2 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% elif fecha_inicio and fecha_fin %}
+        <p>No se encontraron envíos para el rango de fechas seleccionado.</p>
+    {% else %}
+        <p>Por favor, selecciona un rango de fechas para generar el reporte.</p>
+    {% endif %}
+
+</body>
+</html>
