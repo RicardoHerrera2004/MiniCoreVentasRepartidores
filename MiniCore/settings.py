@@ -25,9 +25,7 @@ SECRET_KEY = 'django-insecure-&@74_qw#l5vg643==)yuwi0rtgm5w=k+*8*h26k)8_qqi+n($5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
-
+ALLOWED_HOSTS = ['minicoreventasrepartidores.onrender.com', '127.0.0.1', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,8 +38,6 @@ INSTALLED_APPS = [
     'AppMiniCore',
 ]
 
-ALLOWED_HOSTS = ['minicoreventasrepartidores.onrender.com', '127.0.0.1', 'localhost']
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -50,6 +46,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'MiniCore.urls'
@@ -118,3 +115,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
