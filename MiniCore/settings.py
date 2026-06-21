@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'AppMiniCore',
 ]
 
+ALLOWED_HOSTS = ['minicoreventasrepartidores.onrender.com', '127.0.0.1', 'localhost']
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
