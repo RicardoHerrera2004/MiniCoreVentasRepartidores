@@ -70,6 +70,6 @@ python manage.py runserver
 ## Demostración del Proyecto
 
 Haz clic en el siguiente enlace para ver un video explicativo del sistema en funcionamiento:
-Ver Video en YouTube:
+Ver Video en YouTube: https://youtu.be/KPj5ZfREl9I?si=PO87QcSHyghHPVtx
 
 Desarrollado por: Ricardo Herrera - Estudiante de Ingeniería de Software 💻
